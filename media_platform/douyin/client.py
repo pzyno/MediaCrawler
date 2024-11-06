@@ -258,6 +258,8 @@ class DOUYINClient(AbstractApiClient):
                 await callback(aweme_id, comments)
 
             await asyncio.sleep(crawl_interval)
+            if len(result) > 10:
+                break
             if not is_fetch_sub_comments:
                 continue
             # 获取二级评论
